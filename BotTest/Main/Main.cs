@@ -18,8 +18,10 @@ namespace BotTest.Main
             // Intents 설정
             client = new DiscordSocketClient(new DiscordSocketConfig
             {
-                GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent
+                GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent | GatewayIntents.GuildMessages | GatewayIntents.GuildVoiceStates
+
             });
+ 
             client.Log += LogAsync;// 로그 메시지 처리
             client.Ready += ReadyAsync; // 메시지 수신 처리
 

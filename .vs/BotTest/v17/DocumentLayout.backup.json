@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Github\\BotTest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A9616935-6248-45AC-AD25-B9FEEAD10354}|BotTest\\BotTest.csproj|c:\\github\\bottest\\bottest\\commands\\commandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9616935-6248-45AC-AD25-B9FEEAD10354}|BotTest\\BotTest.csproj|solutionrelative:bottest\\commands\\commandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A9616935-6248-45AC-AD25-B9FEEAD10354}|BotTest\\BotTest.csproj|c:\\github\\bottest\\bottest\\youtube\\youtubesearcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9616935-6248-45AC-AD25-B9FEEAD10354}|BotTest\\BotTest.csproj|solutionrelative:bottest\\youtube\\youtubesearcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9616935-6248-45AC-AD25-B9FEEAD10354}|BotTest\\BotTest.csproj|c:\\github\\bottest\\bottest\\commands\\commandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9616935-6248-45AC-AD25-B9FEEAD10354}|BotTest\\BotTest.csproj|solutionrelative:bottest\\commands\\commandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A9616935-6248-45AC-AD25-B9FEEAD10354}|BotTest\\BotTest.csproj|c:\\github\\bottest\\bottest\\main\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,6 +21,9 @@
     {
       "AbsoluteMoniker": "D:0:0:{A9616935-6248-45AC-AD25-B9FEEAD10354}|BotTest\\BotTest.csproj|c:\\github\\bottest\\bottest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9616935-6248-45AC-AD25-B9FEEAD10354}|BotTest\\BotTest.csproj|solutionrelative:bottest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ibs\\AppData\\Local\\Temp\\.vsdbgsrc\\e71eac70ff3f4d72818091164f5c8f31ef32f402bd975fbf17eee97d2a4584ee\\Task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A9616935-6248-45AC-AD25-B9FEEAD10354}|BotTest\\BotTest.csproj|c:\\github\\bottest\\bottest\\appsettings.example.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -50,33 +53,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
+              "Title": "Task.cs",
+              "DocumentMoniker": "C:\\Users\\ibs\\AppData\\Local\\Temp\\.vsdbgsrc\\e71eac70ff3f4d72818091164f5c8f31ef32f402bd975fbf17eee97d2a4584ee\\Task.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\ibs\\AppData\\Local\\Temp\\.vsdbgsrc\\e71eac70ff3f4d72818091164f5c8f31ef32f402bd975fbf17eee97d2a4584ee\\Task.cs",
+              "ToolTip": "C:\\Users\\ibs\\AppData\\Local\\Temp\\.vsdbgsrc\\e71eac70ff3f4d72818091164f5c8f31ef32f402bd975fbf17eee97d2a4584ee\\Task.cs [\uC77D\uAE30 \uC804\uC6A9]",
+              "RelativeToolTip": "..\\..\\Users\\ibs\\AppData\\Local\\Temp\\.vsdbgsrc\\e71eac70ff3f4d72818091164f5c8f31ef32f402bd975fbf17eee97d2a4584ee\\Task.cs [\uC77D\uAE30 \uC804\uC6A9]",
+              "ViewState": "AgIAADwJAAAAAAAAAAAowE4JAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T06:37:27.62Z",
+              "EditorCaption": " [\uC77D\uAE30 \uC804\uC6A9]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "YouTubeSearcher.cs",
               "DocumentMoniker": "C:\\Github\\BotTest\\BotTest\\YouTube\\YouTubeSearcher.cs",
               "RelativeDocumentMoniker": "BotTest\\YouTube\\YouTubeSearcher.cs",
               "ToolTip": "C:\\Github\\BotTest\\BotTest\\YouTube\\YouTubeSearcher.cs*",
               "RelativeToolTip": "BotTest\\YouTube\\YouTubeSearcher.cs*",
-              "ViewState": "AgIAACUAAAAAAAAAAAAewDUAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-19T04:41:30.17Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CommandHandler.cs",
               "DocumentMoniker": "C:\\Github\\BotTest\\BotTest\\Commands\\CommandHandler.cs",
               "RelativeDocumentMoniker": "BotTest\\Commands\\CommandHandler.cs",
               "ToolTip": "C:\\Github\\BotTest\\BotTest\\Commands\\CommandHandler.cs",
               "RelativeToolTip": "BotTest\\Commands\\CommandHandler.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAADgvzcAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAIwBIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-19T04:16:25.287Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "appsettings.example.json",
               "DocumentMoniker": "C:\\Github\\BotTest\\BotTest\\appsettings.example.json",
               "RelativeDocumentMoniker": "BotTest\\appsettings.example.json",
@@ -95,7 +111,7 @@
               "RelativeDocumentMoniker": "BotTest\\appsettings.json",
               "ToolTip": "C:\\Github\\BotTest\\BotTest\\appsettings.json",
               "RelativeToolTip": "BotTest\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-12-18T07:58:29.778Z",
               "EditorCaption": ""
@@ -108,14 +124,14 @@
               "RelativeDocumentMoniker": "BotTest\\Main\\Main.cs",
               "ToolTip": "C:\\Github\\BotTest\\BotTest\\Main\\Main.cs",
               "RelativeToolTip": "BotTest\\Main\\Main.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAUwCUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAkAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-18T07:27:48.203Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "BotTest.csproj",
               "DocumentMoniker": "C:\\Github\\BotTest\\BotTest\\BotTest.csproj",
               "RelativeDocumentMoniker": "BotTest\\BotTest.csproj",
@@ -134,7 +150,7 @@
               "RelativeDocumentMoniker": "BotTest\\Program.cs",
               "ToolTip": "C:\\Github\\BotTest\\BotTest\\Program.cs",
               "RelativeToolTip": "BotTest\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-18T04:53:15.808Z",
               "EditorCaption": ""

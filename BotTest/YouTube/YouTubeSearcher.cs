@@ -1,11 +1,12 @@
-﻿using HtmlAgilityPack;
-using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YoutubeExplode;
+using YoutubeExplode.Videos.Streams;
 
 namespace BotTest.YouTube
 {
@@ -49,7 +50,7 @@ namespace BotTest.YouTube
             return videoResults;
         }
 
-        public void YoutubeMusic(string song)
+        public async Task YoutubeMusicAsync(string song)
         {
             var videoResults = SearchVideos(song);
 
@@ -61,18 +62,13 @@ namespace BotTest.YouTube
                     Console.WriteLine($"{i + 1}. {videoResults[i].Title} - {videoResults[i].Url}");
                 }
 
-                Console.WriteLine("Enter the number of the video to open (1-5):");
+                Console.WriteLine("Enter the number of the video to play (1-5):");
                 if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= videoResults.Count)
                 {
                     string selectedUrl = videoResults[choice - 1].Url;
-                    Console.WriteLine($"Opening: {selectedUrl}");
+                    Console.WriteLine($"Selected: {selectedUrl}");
 
-                    // 브라우저에서 열기
-                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
-                    {
-                        FileName = selectedUrl,
-                        UseShellExecute = true
-                    });
+                    await PlayAudioFromUrl(selectedUrl);
                 }
                 else
                 {
@@ -84,5 +80,63 @@ namespace BotTest.YouTube
                 Console.WriteLine("No videos found.");
             }
         }
+
+
+        public async Task PlayAudioFromUrl(string url)
+        {
+            var youtube = new YoutubeClient();
+
+            try
+            {
+                // URL에서 동영상 ID 추출
+                string videoId = ExtractVideoId(url);
+
+                // 스트림 정보 가져오기
+                var streamManifest = await youtube.Videos.Streams.GetManifestAsync(videoId);
+                var audioStreamInfo = streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();
+
+                if (audioStreamInfo != null)
+                {
+                    Console.WriteLine($"Streaming audio from: {audioStreamInfo.Url}");
+
+                    // 오디오 재생 로직 (시스템의 기본 미디어 플레이어를 사용하여 재생)
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = audioStreamInfo.Url,
+                        UseShellExecute = true
+                    });
+                }
+                else
+                {
+                    Console.WriteLine("No audio stream found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error playing audio: {ex.Message}");
+            }
+        }
+
+        public static string ExtractVideoId(string url)
+        {
+            Uri uri = new Uri(url);
+
+            // `v` 파라미터 추출
+            var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+            if (query.AllKeys.Contains("v"))
+            {
+                return query["v"] ?? throw new ArgumentException("YouTube URL does not contain a valid video ID.");
+            }
+
+            // 짧은 URL 형태 (https://youtu.be/VIDEO_ID)
+            if (uri.Host.Contains("youtu.be"))
+            {
+                return uri.AbsolutePath.Trim('/') ?? throw new ArgumentException("YouTube URL does not contain a valid video ID.");
+            }
+
+            throw new ArgumentException("Invalid YouTube URL.");
+        }
+
+
     }
 }
