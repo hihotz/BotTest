@@ -1,15 +1,17 @@
 ﻿using Discord.WebSocket;
 using Discord;
+using BotTest.YouTube;
 
 namespace BotTest.Commands
 {
     internal class CommandHandler
     {
         private readonly DiscordSocketClient client;
-
+        private readonly YouTubeSearcher searcher;
         public CommandHandler(DiscordSocketClient _client)
         {
             client = _client;
+            searcher = new YouTubeSearcher();
         }
 
         public void RegisterCommands()
@@ -21,7 +23,21 @@ namespace BotTest.Commands
         {
             try
             {
-                if (message.Author.IsBot) return;
+                // 봇의 메시지 또는 문자열이 비어있는 경우 무시
+                if (message.Author.IsBot || string.IsNullOrEmpty(message.Content.ToString())) return;
+
+                if (message.Content.StartsWith("http://"))
+                {
+                    string content = message.Content.Substring(7);
+                    await message.Channel.SendMessageAsync(content);
+                    return;
+                }
+
+                if (message.Content.StartsWith("p "))
+                {
+                    searcher.YoutubeMusic(message.Content.Substring(2));
+                    return;
+                }
 
                 switch (message.Content.ToLower())
                 {
@@ -37,13 +53,6 @@ namespace BotTest.Commands
                     case "!time":
                         await message.Channel.SendMessageAsync($"현재 서버 시간: {DateTime.Now}");
                         break;
-                    default:
-                        if (message.Content.StartsWith("!repeat "))
-                        {
-                            string repeatMessage = message.Content.Substring(8);
-                            await message.Channel.SendMessageAsync(repeatMessage);
-                        }
-                        break;
                 }
             }
             catch (Exception ex)
@@ -52,5 +61,6 @@ namespace BotTest.Commands
                 await message.Channel.SendMessageAsync("명령어 처리 중 오류가 발생했습니다.");
             }
         }
+
     }
 }
