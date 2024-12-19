@@ -1,26 +1,22 @@
 ﻿using BotTest.Main;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-#region appsettings.json에서 데이터 불러오기
-// 봇 토큰
-IConfiguration _configuration = new ConfigurationBuilder()
-        .SetBasePath(Directory.GetCurrentDirectory()) // 현재 디렉토리 기준
-        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-        .Build();
-string botToken = _configuration["DiscordConnectionStrings:BotToken"] ?? string.Empty;
-#endregion
 
-var main = new Main(botToken);
 
+var host = Host.CreateDefaultBuilder(args)
+    .ConfigureAppConfiguration((context, config) =>
+    {
+        config.SetBasePath(Directory.GetCurrentDirectory())
+              .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+    })
+    .ConfigureServices((context, services) =>
+    {
+        string botToken = context.Configuration["DiscordConnectionStrings:BotToken"] ?? string.Empty;
+        services.AddSingleton(new Main(botToken));
+    })
+    .Build();
+
+var main = host.Services.GetRequiredService<Main>();
 await main.RunBotAsync();
-
-
-
-
-
-
-
-
-
-
-

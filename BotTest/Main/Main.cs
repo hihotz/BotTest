@@ -1,41 +1,37 @@
 ﻿using Discord.WebSocket;
 using Discord;
-using Microsoft.Extensions.Configuration;
-
+using BotTest.Commands;
 
 namespace BotTest.Main
 {
     internal class Main
     {
-        private DiscordSocketClient? _client;
+        private DiscordSocketClient? client;
+        private readonly CommandHandler commandHandler;
         private readonly string botToken;
+
 
         public Main(string _botToken)
         {
             botToken = _botToken;
+
+            // Intents 설정
+            client = new DiscordSocketClient(new DiscordSocketConfig
+            {
+                GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent
+            });
+            client.Log += LogAsync;// 로그 메시지 처리
+            client.Ready += ReadyAsync; // 메시지 수신 처리
+
+            commandHandler = new CommandHandler(client);
+            commandHandler.RegisterCommands();
         }
         
         public async Task RunBotAsync()
         {
-            // 클라이언트 설정
-            // _client = new DiscordSocketClient();
-
-
-            // Intents 설정
-            _client = new DiscordSocketClient(new DiscordSocketConfig
-            {
-                GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent
-            });
-
-            // 로그 메시지 처리
-            _client.Log += LogAsync;
-
-            // 메시지 수신 처리
-            _client.MessageReceived += MessageReceivedAsync;
-
             // 봇 로그인 및 시작
-            await _client.LoginAsync(TokenType.Bot, botToken);
-            await _client.StartAsync();
+            await client!.LoginAsync(TokenType.Bot, botToken);
+            await client.StartAsync();
 
             // 봇이 종료되지 않도록 대기
             await Task.Delay(-1);
@@ -47,18 +43,10 @@ namespace BotTest.Main
             return Task.CompletedTask;
         }
 
-        private async Task MessageReceivedAsync(SocketMessage message)
+        private Task ReadyAsync()
         {
-            // 봇 자신의 메시지는 무시
-            if (message.Author.IsBot) return;
-
-            // 특정 명령어에 반응
-            if (message.Content == "!ping")
-            {
-                await message.Channel.SendMessageAsync("애옹!");
-            }
+            Console.WriteLine("봇이 준비되었습니다!");
+            return Task.CompletedTask;
         }
     }
-
-
 }
